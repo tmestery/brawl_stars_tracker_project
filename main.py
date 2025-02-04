@@ -14,3 +14,4 @@ headers = {"Authorization": f"Bearer {API_KEY}"}
 response = requests.get(url,headers)
 data = response.json()
 print(data["trophies"])
+print(data["name"])

@@ -1,1 +1,2 @@
-.envapiKey.env
+.envapiKey.envapiKey.env # Ignore it in the future
+apiKey.env # Ignore it in the future
