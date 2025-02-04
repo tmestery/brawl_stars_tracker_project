@@ -1,2 +1,1 @@
-.envapiKey.envapiKey.env # Ignore it in the future
-apiKey.env # Ignore it in the future
+.txtapi_key.txt
