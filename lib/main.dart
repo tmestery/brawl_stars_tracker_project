@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';  // importing different fonts from google-fonts
+from BRAWL_TRACKER import main.py
 
 void main() {  // this is what happens before the app starts
   runApp(MyApp());
