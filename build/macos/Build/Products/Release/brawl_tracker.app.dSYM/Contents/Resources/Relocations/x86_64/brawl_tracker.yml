@@ -1,0 +1,21 @@
+---
+triple:          'x86_64-apple-darwin'
+binary-path:     '/Users/tmestery/brawl_tracker/build/macos/Build/Products/Release/brawl_tracker.app/Contents/MacOS/brawl_tracker'
+relocations:
+  - { offset: 0xCE7AB, size: 0x8, addend: 0x0, symName: '_$s13brawl_tracker17MainFlutterWindowC12awakeFromNibyyF', symObjAddr: 0x0, symBinAddr: 0x1000013B0, symSize: 0x160 }
+  - { offset: 0xCE906, size: 0x8, addend: 0x0, symName: '_$s13brawl_tracker17MainFlutterWindowCMa', symObjAddr: 0x240, symBinAddr: 0x1000015F0, symSize: 0x14 }
+  - { offset: 0xCE926, size: 0x8, addend: 0x0, symName: '_$s13brawl_tracker17MainFlutterWindowC12awakeFromNibyyF', symObjAddr: 0x0, symBinAddr: 0x1000013B0, symSize: 0x160 }
+  - { offset: 0xCE9C5, size: 0x8, addend: 0x0, symName: '_$s13brawl_tracker17MainFlutterWindowC12awakeFromNibyyFTo', symObjAddr: 0x160, symBinAddr: 0x100001510, symSize: 0x30 }
+  - { offset: 0xCEAD6, size: 0x8, addend: 0x0, symName: '_$s13brawl_tracker17MainFlutterWindowC11contentRect9styleMask7backing5deferACSo6CGRectV_So013NSWindowStyleI0VSo18NSBackingStoreTypeVSbtcfcTo', symObjAddr: 0x190, symBinAddr: 0x100001540, symSize: 0x80 }
+  - { offset: 0xCEB30, size: 0x8, addend: 0x0, symName: '_$s13brawl_tracker17MainFlutterWindowCfD', symObjAddr: 0x210, symBinAddr: 0x1000015C0, symSize: 0x30 }
+  - { offset: 0xCEC81, size: 0x8, addend: 0x0, symName: '_$s13brawl_tracker11AppDelegateC47applicationShouldTerminateAfterLastWindowClosedySbSo13NSApplicationCFTo', symObjAddr: 0x0, symBinAddr: 0x100001610, symSize: 0x10 }
+  - { offset: 0xCED2B, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x80, symBinAddr: 0x100001690, symSize: 0x30 }
+  - { offset: 0xCED75, size: 0x8, addend: 0x0, symName: '_$s13brawl_tracker11AppDelegateCMa', symObjAddr: 0xB0, symBinAddr: 0x1000016C0, symSize: 0x14 }
+  - { offset: 0xCEDC2, size: 0x8, addend: 0x0, symName: '_$s13brawl_tracker11AppDelegateC47applicationShouldTerminateAfterLastWindowClosedySbSo13NSApplicationCFTo', symObjAddr: 0x0, symBinAddr: 0x100001610, symSize: 0x10 }
+  - { offset: 0xCEDD6, size: 0x8, addend: 0x0, symName: '_$s13brawl_tracker11AppDelegateC40applicationSupportsSecureRestorableStateySbSo13NSApplicationCFTo', symObjAddr: 0x10, symBinAddr: 0x100001620, symSize: 0x10 }
+  - { offset: 0xCEE03, size: 0x8, addend: 0x0, symName: '_$s13brawl_tracker11AppDelegateCACycfcTo', symObjAddr: 0x20, symBinAddr: 0x100001630, symSize: 0x30 }
+  - { offset: 0xCEE3E, size: 0x8, addend: 0x0, symName: '_$s13brawl_tracker11AppDelegateCfD', symObjAddr: 0x50, symBinAddr: 0x100001660, symSize: 0x30 }
+  - { offset: 0xCEFB0, size: 0x8, addend: 0x0, symName: '_$s13brawl_tracker19ResourceBundleClass33_D55C6398058B472BEC0029ECDB94E9E7LLCfD', symObjAddr: 0x0, symBinAddr: 0x1000016E0, symSize: 0x20 }
+  - { offset: 0xCEFF2, size: 0x8, addend: 0x0, symName: '_$s13brawl_tracker19ResourceBundleClass33_D55C6398058B472BEC0029ECDB94E9E7LLCMa', symObjAddr: 0x20, symBinAddr: 0x100001700, symSize: 0x14 }
+  - { offset: 0xCF00D, size: 0x8, addend: 0x0, symName: '_$s13brawl_tracker19ResourceBundleClass33_D55C6398058B472BEC0029ECDB94E9E7LLCfD', symObjAddr: 0x0, symBinAddr: 0x1000016E0, symSize: 0x20 }
+...

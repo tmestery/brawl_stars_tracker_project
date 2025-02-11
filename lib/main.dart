@@ -1,17 +1,37 @@
+// import 'package:flutter/material.dart';
+// import 'package:google_fonts/google_fonts.dart';  // importing different fonts from google-fonts
+
+import 'dart:io';
+import 'dart:ffi';
+import 'package:ffi/ffi.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';  // importing different fonts from google-fonts
+import 'dart:convert';
 
 void main() {
-  runApp(MyApp());  // Ensuring that your app starts correctly.
+  WidgetsFlutterBinding.ensureInitialized();
+  runPythonScript();  // Execute Python before launching UI
+  runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {   // Changed to StatefulWidget to hold leaderboardString
+void runPythonScript() async {
+  // Define the Python script file path
+  final scriptPath = '/Users/tmestery/brawl_tracker/lib/leaderboardDisplay.py';
+  
+  // Run the Python script using Process
+  ProcessResult results = await Process.run('python3', [scriptPath]);
+  //ProcessResult results = await Process.run('sudo', ['python3', scriptPath]);
+  var decode = (jsonDecode(results.stdout));
+  print(decode); // Decode JSON before printing
+}
+
+// Convert MyApp to a StatefulWidget
+class MyApp extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
-  String leaderboardString = ''; // Initialize leaderboardString
+  // String leaderboardString = ''; // Initialize leaderboardString
 
   @override
   Widget build(BuildContext context) {   // tells flutter what to draw/make on UI
@@ -22,7 +42,8 @@ class _MyAppState extends State<MyApp> {
             children: [
               Text(
                 'Your one-stop shop for everything brawlstars!',
-                style: GoogleFonts.montserrat(  // applying the fonts from google-fonts
+                //style: GoogleFonts.montserrat(  // applying the fonts from google-fonts
+                style: TextStyle( // This applies the default system font
                   fontSize: 19,
                   fontWeight: FontWeight.bold,
                   color: Colors.teal.shade100,
@@ -43,7 +64,8 @@ class _MyAppState extends State<MyApp> {
                 },  
                 child: Text(
                   'Leaderboards',
-                  style: GoogleFonts.montserrat(  // using the same font as the slogan
+                  style: TextStyle( // This applies the default system font
+                  //style: GoogleFonts.montserrat(  // using the same font as the slogan
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                     color: Colors.teal.shade100,
@@ -62,7 +84,8 @@ class _MyAppState extends State<MyApp> {
                 },
                 child: Text(
                   'Events',
-                  style: GoogleFonts.montserrat(  // using the same font as the slogan
+                  style: TextStyle( // This applies the default system font
+                  //style: GoogleFonts.montserrat(  // using the same font as the slogan
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                     color: Colors.teal.shade100,
@@ -86,8 +109,9 @@ class _MyAppState extends State<MyApp> {
               children: [   // again, here children is used since there's style, fontsize, weight, and color = more than one widget
                 Text(
                   'BrawlKnawl',
-                  style: GoogleFonts.bangers(  // applying google-fonts again
-                    fontSize: 175,
+                  style: TextStyle( // This applies the default system font
+                  //style: GoogleFonts.bangers(  // applying google-fonts again
+                    fontSize: 125,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
