@@ -266,10 +266,10 @@
       "languageVersion": "3.6"
     }
   ],
-  "generated": "2025-02-05T23:18:51.530358Z",
+  "generated": "2025-02-11T00:44:01.942197Z",
   "generator": "pub",
-  "generatorVersion": "3.6.1",
+  "generatorVersion": "3.6.2",
   "flutterRoot": "file:///opt/homebrew/Caskroom/flutter/3.27.3/flutter",
-  "flutterVersion": "3.27.3",
+  "flutterVersion": "3.27.4",
   "pubCache": "file:///Users/tmestery/.pub-cache"
 }

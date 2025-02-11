@@ -23,19 +23,19 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			7UuaEAInEaAYEC1TdcOLFUBaivg=
+			/K1dDljicTXviG32R7SO6WoyigQ=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"ed4b9a10022711a018102d5375c38b15405a8af8"</string>
+			<string>cdhash H"fcad5d0e58e27135ef886df647b48ee96a328a04"</string>
 		</dict>
 		<key>Frameworks/FlutterMacOS.framework</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			M8GFZ1MO2tG+B64A67rbxd7zh9o=
+			z/k/uszI8xxfFyjsn6n6YKbu1do=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"33c18567530edad1be07ae00ebbadbc5def387da"</string>
+			<string>cdhash H"cff93fbaccc8f31c5f1728ec9fa9fa60a6eed5da"</string>
 		</dict>
 		<key>Frameworks/libswiftAppKit.dylib</key>
 		<dict>
@@ -203,10 +203,10 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			PPoaz3VvTXwe5S3/otEJytMbiNE=
+			aww3GyuFGKHVKLQrAVDZz5dgiDw=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"3cfa1acf756f4d7c1ee52dffa2d109cad31b88d1"</string>
+			<string>cdhash H"6b0c371b2b8518a1d528b42b0150d9cf9760883c"</string>
 		</dict>
 		<key>MacOS/__preview.dylib</key>
 		<dict>
