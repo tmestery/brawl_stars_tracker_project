@@ -35,6 +35,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {   // tells flutter what to draw/make on UI
+  double width = MediaQuery.sizeOf(context).width;
     return MaterialApp(
       home: Scaffold(   // top level layout widget that acts as the blueprint for the screen
         appBar: AppBar(    // adds a top navigation bar to the screen (property of scaffold)
@@ -44,7 +45,7 @@ class _MyAppState extends State<MyApp> {
                 'Your one-stop shop for everything brawlstars!',
                 //style: GoogleFonts.montserrat(  // applying the fonts from google-fonts
                 style: TextStyle( // This applies the default system font
-                  fontSize: 19,
+                  fontSize: width / 38,
                   fontWeight: FontWeight.bold,
                   color: Colors.teal.shade100,
                 ),
@@ -66,7 +67,7 @@ class _MyAppState extends State<MyApp> {
                   'Leaderboards',
                   style: TextStyle( // This applies the default system font
                   //style: GoogleFonts.montserrat(  // using the same font as the slogan
-                    fontSize: 24,
+                    fontSize: width / 34,
                     fontWeight: FontWeight.bold,
                     color: Colors.teal.shade100,
                   ),
@@ -86,7 +87,7 @@ class _MyAppState extends State<MyApp> {
                   'Events',
                   style: TextStyle( // This applies the default system font
                   //style: GoogleFonts.montserrat(  // using the same font as the slogan
-                    fontSize: 24,
+                    fontSize: width / 34,
                     fontWeight: FontWeight.bold,
                     color: Colors.teal.shade100,
                   ),
@@ -108,10 +109,10 @@ class _MyAppState extends State<MyApp> {
               mainAxisSize: MainAxisSize.min,
               children: [   // again, here children is used since there's style, fontsize, weight, and color = more than one widget
                 Text(
-                  'BrawlKnawl',
+                  'BrawlKnawl', // Concatenating the two strings
                   style: TextStyle( // This applies the default system font
                   //style: GoogleFonts.bangers(  // applying google-fonts again
-                    fontSize: 125,
+                    fontSize: width / 15,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
@@ -128,6 +129,7 @@ class _MyAppState extends State<MyApp> {
 class LeaderboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.sizeOf(context).width;
     return Scaffold(
       backgroundColor: Colors.blueGrey,
       body: Center(
@@ -136,7 +138,11 @@ class LeaderboardPage extends StatelessWidget {
           children: [
             Text(
               'Leaderboard',
-              style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: width / 15,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
             ),
           ],
         ),
@@ -148,6 +154,7 @@ class LeaderboardPage extends StatelessWidget {
 class EventsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.sizeOf(context).width;
     return Scaffold(
       backgroundColor: Colors.blueGrey,
       body: Center(
@@ -156,7 +163,11 @@ class EventsPage extends StatelessWidget {
           children: [
             Text(
               'Events',
-              style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: width / 15,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
             ),
           ],
         ),
