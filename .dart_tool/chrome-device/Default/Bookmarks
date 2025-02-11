@@ -1,0 +1,65 @@
+{
+   "checksum": "bdb1e3bb3f816f268382b659eebf8c67",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "date_added": "13372446809267856",
+            "date_last_used": "0",
+            "guid": "6b115cef-3be8-4ae6-af64-6c5400cc709c",
+            "id": "7",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Involve, a Journal of Mathematics Vol. 1, No. 1, 2008",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://msp.org/involve/2008/1-1/index.xhtml",
+            "visit_count": 1
+         }, {
+            "date_added": "13383710028884364",
+            "date_last_used": "0",
+            "guid": "cd3e6540-be5c-4b53-a7a7-36bbc83dc77a",
+            "id": "6",
+            "name": "McAfee Security",
+            "show_icon": false,
+            "source": "oem_preload",
+            "type": "url",
+            "url": "https://www.mcafee.com/consumer/v/browserfav/hp.html",
+            "visit_count": 0
+         } ],
+         "date_added": "13383710028651809",
+         "date_last_used": "0",
+         "date_modified": "13383710028884364",
+         "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
+         "id": "1",
+         "name": "Favorites bar",
+         "source": "unknown",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13383710028651812",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "82b081ec-3dd3-529c-8475-ab6c344590dd",
+         "id": "2",
+         "name": "Other favorites",
+         "source": "unknown",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13383710028651815",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "4cf2e351-0e85-532b-bb37-df045d8f8d0f",
+         "id": "3",
+         "name": "Mobile favorites",
+         "source": "unknown",
+         "type": "folder"
+      }
+   },
+   "sync_metadata": "CkEKHgiIgQISCIRUjfKUAQAAKg4QABgBIAIoBjAAOABAABIAKhhtWjhHNEVJR296aUo1TFI3RnoyendRPT1IA6AGDBKOAQgBEokBChx5eEovNmZ2a2VjcjdrcDVFUXpCNHRXTHBkYkU9EiQyYmMzMTk0MS0xMGQ4LTUyYTEtOWEwNy1mYzUxZGI1YmIzNzcYACAAKAAwq7f5mZUyOMO7+ZmVMkDDu/mZlTJKHGFSQ1dMZ2hGOWI1SW5xS0lEdnVKL2p2UWtGYz1aAGUAAAAAwj4CYAASrAEIBxKnAQocVmVlVTdPR1JYWXNVWjdLaFFrODAwMkNYQVlzPRIkNmIxMTVjZWYtM2JlOC00YWU2LWFmNjQtNmM1NDAwY2M3MDljGAAgAigCMNvWx5TPMjjigeqZpTJAz77HlM8yShx0dG5sd3VLRnV1MXNMcEQ5WldaRmZqSjlPQnM9Wh4iHFpJbklzLzlEdHA2OVdXNFNETlF5OXlPYnRFTT1lbUNWRcI+AmAFEo4BCAISiQEKHFljU1RvbnZFU1B3cUNzNEwyY3JWaHY2OEw5OD0SJDI0ZjE1YjM0LWI5YmEtNWY0Zi04ZWRiLWQ0ZTY0Yjk1OWQwNBgAIAAoADCst/mZlTI447v5mZUyQOO7+ZmVMkocb1BWa2h3QlJiVjY1S0NXUjIrSU9OSFdvT3U4PVoAZQAAAADCPgJgABKOAQgDEokBChxuamdEdTg4ZUNydlhwODZwRDdmSEdjcUZwODg9EiRmZGJjODExNy1lN2UxLTVhNjItYWE1Yy05ZTEwZjJhYmY1ZDIYACAAKAAwsbf5mZUyOK+8+ZmVMkCvvPmZlTJKHHl6TkIwMWNuNTRBN2NSVTB1VCsvUGdtVHRVbz1aAGUAAAAAwj4CYAAwADgA",
+   "version": 1
+}
