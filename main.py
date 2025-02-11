@@ -1,23 +1,20 @@
-import os
 import requests
 
-class main():
+class Main:
+    def __init__(self):
+        file = open("api_key.txt", "r")
+        API_KEY = file.read().strip()
+        file.close()  # Manually closing the file
 
-    def __init__(self, value):
-
-        file = open("api_key.txt","r")
-        API_KEY = file.read()
-        print(API_KEY)
         PLAYER_TAG = "28UY8YJY0"
-
-
         url = f"https://api.brawlstars.com/v1/players/%23{PLAYER_TAG}"
         headers = {"Authorization": f"Bearer {API_KEY}"}
 
-
-        response = requests.get(url,headers)
+        response = requests.get(url, headers=headers)
         data = response.json()
 
-        finalCopy = data["trophies"]
+        self.finalCopy = data.get("trophies", "No trophy data found")
 
-        return finalCopy
+# Example usage:
+player = Main()
+print(player.finalCopy)  # Prints the trophy count

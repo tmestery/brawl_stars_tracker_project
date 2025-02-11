@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';  // importing different fonts from google-fonts
-from BRAWL_TRACKER import main.py
 
-void main() {  // this is what happens before the app starts
-  runApp(MyApp());
-  initializeSomething();
+void main() {
+  runApp(MyApp());  // Ensuring that your app starts correctly.
 }
 
-void initializeSomething() { // prints initializing... while the app is loading into terminal
-  print("Initializing...");
+class MyApp extends StatefulWidget {   // Changed to StatefulWidget to hold leaderboardString
+  @override
+  _MyAppState createState() => _MyAppState();
 }
 
-class MyApp extends StatelessWidget {   // mainly sets up themes, navigation, and routing
+class _MyAppState extends State<MyApp> {
+  String leaderboardString = ''; // Initialize leaderboardString
+
   @override
   Widget build(BuildContext context) {   // tells flutter what to draw/make on UI
     return MaterialApp(
@@ -35,10 +36,6 @@ class MyApp extends StatelessWidget {   // mainly sets up themes, navigation, an
               builder: (context) => TextButton( 
                 onPressed: () {
                   print('Leaderboard clicked');
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LeaderboardPage()), // Fixed here
-                  );
                 },  
                 child: Text(
                   'Leaderboards',
@@ -100,73 +97,32 @@ class MyApp extends StatelessWidget {   // mainly sets up themes, navigation, an
   }
 }
 
-class HomePage extends StatelessWidget {   // represents a seperates screen, in this case homepage, inside the app! (User Interface for page)
+class LeaderboardPage extends StatelessWidget {
+  final String leaderboardString;
+
+  LeaderboardPage({Key? key, required this.leaderboardString});
+
   @override
-  Widget build(BuildContext context) {  // tells flutter what to draw/make on UI
-    return Scaffold(     // top level layout widget that acts as the blueprint for the screen
-      backgroundColor: Colors.yellow.shade700, // Set background color here
-      appBar: AppBar(      // adds a top navigation bar to the screen (property of scaffold)
-        title: Text('BrawlKnawl'),
-        centerTitle: true,
-        backgroundColor: Colors.yellow.shade700, // changes AppBar color if (background)
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Leaderboard"),
       ),
-      body: Center(      // defines the main screen content	(holds a lot)
-        child: Column(   // holds a single widget inside another widget
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [  // children used because there is multiple widgets inside the parent function
-            Text(
-              'Welcome to BrawlKnawl!',
-              style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 10),
-            Text(
-              'Created by Tyler Mestery, and Mason Hart',   // contributers
-              style: TextStyle(fontSize: 26),
-            ),
-          ],
-        ),
+      body: Center(
+        child: Text(leaderboardString),  // Display the leaderboard string
       ),
     );
   }
 }
 
-/**
-* Leadboard page that can be traveled to - from to below:
-* Seperate screen basically
-*/
-class LeaderboardPage extends StatelessWidget {   // represents a separate screen, in this case, the leaderboard page
+class EventsPage extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {    // tells flutter what to draw/make on UI
+  Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey, // Added missing comma
+      backgroundColor: Colors.blueGrey,
       body: Center(
-        child: Column( // Column allows multiple children inside Center
-          mainAxisSize: MainAxisSize.min, // Keeps content centered in display
-          children: [
-            Text(
-              'Leaderboard',
-              style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
-            ),
-          ],
-        ),
-      ),
-    ); // Closed Scaffold properly
-  }
-}
-
-
-/**
-* Events page that can be traveled to - from to below:
-* Seperate screen basically
-*/
-class EventsPage extends StatelessWidget {   // represents a separate screen, in this case, the leaderboard page
-  @override
-  Widget build(BuildContext context) {    // tells flutter what to draw/make on UI
-    return Scaffold(
-      backgroundColor: Colors.blueGrey, // Added missing comma
-      body: Center(
-        child: Column( // Column allows multiple children inside Center
-          mainAxisSize: MainAxisSize.min, // Keeps content centered in display
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Text(
               'Events',
@@ -175,6 +131,6 @@ class EventsPage extends StatelessWidget {   // represents a separate screen, in
           ],
         ),
       ),
-    ); // Closed Scaffold properly
+    );
   }
 }
