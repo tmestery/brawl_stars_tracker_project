@@ -36,6 +36,10 @@ class _MyAppState extends State<MyApp> {
               builder: (context) => TextButton( 
                 onPressed: () {
                   print('Leaderboard clicked');
+                  Navigator.push(  // Added navigation to the EventsPage
+                    context,
+                    MaterialPageRoute(builder: (context) => LeaderboardPage()),  // Open EventsPage when clicked
+                  );
                 },  
                 child: Text(
                   'Leaderboards',
@@ -98,18 +102,20 @@ class _MyAppState extends State<MyApp> {
 }
 
 class LeaderboardPage extends StatelessWidget {
-  final String leaderboardString;
-
-  LeaderboardPage({Key? key, required this.leaderboardString});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Leaderboard"),
-      ),
+      backgroundColor: Colors.blueGrey,
       body: Center(
-        child: Text(leaderboardString),  // Display the leaderboard string
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              'Leaderboard',
+              style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
       ),
     );
   }
