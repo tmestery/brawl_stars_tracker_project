@@ -6,6 +6,7 @@ import 'dart:ffi';
 import 'package:ffi/ffi.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
+import 'leaderboardDisplay.py';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,7 +19,7 @@ void runPythonScript() async {
   final scriptPath = '/Users/tmestery/brawl_tracker/lib/leaderboardDisplay.py';
   
   // Run the Python script using Process
-  ProcessResult results = await Process.run('python3', [scriptPath]);
+  ProcessResult results = await Process.run('/opt/homebrew/bin/python3', [scriptPath]);
   //ProcessResult results = await Process.run('sudo', ['python3', scriptPath]);
   var decode = (jsonDecode(results.stdout));
   print(decode); // Decode JSON before printing
