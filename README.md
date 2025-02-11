@@ -2,7 +2,7 @@
 
 ## Description
 
-The Brawl Stars Tracker is designed to provide players with insights into leaderboard positions, and events occuring within Brawlstars. By utilizing the official Brawl Stars API, the application fetches real-time data, allowing users to:
+The Brawl Stars Tracker is designed to give players insights into leaderboard positions, and events occuring within Brawlstars. Through using the official Brawl Stars API, the application collects real-time data, allowing users to:
 
 - Monitor Leaderboard Standings Overtime
 - Compare standings with friends or club members
