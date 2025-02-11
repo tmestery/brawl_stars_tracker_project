@@ -1,0 +1,10 @@
+version: "Apple Swift version 6.0.3 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)"
+options: "926896a9ff445844fe1872e91dc67b38658269eb0178964fdabb872463cac081"
+build_start_time: [1739306606, 283661000]
+build_end_time: [1739306611, 201495000]
+inputs:
+  ? "/Users/tmestery/brawl_tracker/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/DerivedSources/GeneratedAssetSymbols.swift"
+  : [1739306606, 278027064]
+  "/Users/tmestery/brawl_tracker/macos/Flutter/GeneratedPluginRegistrant.swift": [1739306584, 642810892]
+  "/Users/tmestery/brawl_tracker/macos/Runner/AppDelegate.swift": [1737490741, 0]
+  "/Users/tmestery/brawl_tracker/macos/Runner/MainFlutterWindow.swift": [1737490741, 0]
