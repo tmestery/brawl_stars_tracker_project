@@ -74,7 +74,8 @@ To set up and run the Brawl Stars Tracker application locally, follow these step
      
 If you have any issues or questions, reach out! Firstly, we'd recommend trying to clean your workspace:
 
-   ```flutter clean
+   ```
+   flutter clean
    flutter pub get
    flutter run
    ```
