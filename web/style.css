@@ -1,0 +1,43 @@
+
+
+
+body{
+    margin: 0;
+}
+
+nav{
+    background-color: purple;
+}
+
+nav ul{
+    color: white;
+    list-style-type: none;
+    float: center;
+    margin: inherit;
+    background-color: brown;
+    overflow:hidden;
+}
+
+nav li{
+    float: left;
+    background-color: green;
+}
+nav li a{
+    background-color: blue;
+    text-decoration: none;
+    text-align: center;
+    margin: 40px 40px;
+    padding: 40px 40px;
+    font-size: 40px;
+    color: white;
+}
+
+nav li a:hover{
+    background-color: lightblue;
+}
+
+nav li h1{
+    color: white;
+    font-size: 40px;
+    padding: 100px;
+}
