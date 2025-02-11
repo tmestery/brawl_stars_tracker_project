@@ -5,6 +5,7 @@ import 'dart:io';
 import 'dart:ffi';
 import 'package:ffi/ffi.dart';
 import 'package:flutter/material.dart';
+import 'dart:convert';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,11 +15,13 @@ void main() {
 
 void runPythonScript() async {
   // Define the Python script file path
-  final scriptPath = 'lib/testing.py';
+  final scriptPath = '/Users/tmestery/brawl_tracker/lib/leaderboardDisplay.py';
   
   // Run the Python script using Process
   ProcessResult results = await Process.run('python3', [scriptPath]);
-    print(results.stdout); // This will print the output from the Python script
+  //ProcessResult results = await Process.run('sudo', ['python3', scriptPath]);
+  var decode = (jsonDecode(results.stdout));
+  print(decode); // Decode JSON before printing
 }
 
 // Convert MyApp to a StatefulWidget
@@ -28,7 +31,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String leaderboardString = ''; // Initialize leaderboardString
+  // String leaderboardString = ''; // Initialize leaderboardString
 
   @override
   Widget build(BuildContext context) {   // tells flutter what to draw/make on UI
