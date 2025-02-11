@@ -1,9 +1,0 @@
-version: "Apple Swift version 6.0.3 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)"
-options: "8fa809bca802eb11ea7427d96b0db309b56ed9244484b705beb5a63e57cfeb93"
-build_start_time: [1739306588, 178415000]
-build_end_time: [1739306593, 742424000]
-inputs:
-  ? "/Users/tmestery/.pub-cache/hosted/pub.dev/path_provider_foundation-2.4.1/darwin/path_provider_foundation/Sources/path_provider_foundation/PathProviderPlugin.swift"
-  : [1738729430, 449672847]
-  ? "/Users/tmestery/.pub-cache/hosted/pub.dev/path_provider_foundation-2.4.1/darwin/path_provider_foundation/Sources/path_provider_foundation/messages.g.swift"
-  : [1738729430, 450281713]

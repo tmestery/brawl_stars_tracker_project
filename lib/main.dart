@@ -45,7 +45,7 @@ class _MyAppState extends State<MyApp> {
                 'Your one-stop shop for everything brawlstars!',
                 //style: GoogleFonts.montserrat(  // applying the fonts from google-fonts
                 style: TextStyle( // This applies the default system font
-                  fontSize: width / 38,
+                  fontSize: width / 46,
                   fontWeight: FontWeight.bold,
                   color: Colors.teal.shade100,
                 ),
@@ -112,7 +112,7 @@ class _MyAppState extends State<MyApp> {
                   'BrawlKnawl', // Concatenating the two strings
                   style: TextStyle( // This applies the default system font
                   //style: GoogleFonts.bangers(  // applying google-fonts again
-                    fontSize: width / 15,
+                    fontSize: width / 8,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
@@ -131,6 +131,38 @@ class LeaderboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.sizeOf(context).width;
     return Scaffold(
+      appBar: AppBar(
+        title: Column(
+          children: [
+            Text(
+              'Your one-stop shop for everything brawlstars!',
+              style: TextStyle(
+                fontSize: width / 46,
+                fontWeight: FontWeight.bold,
+                color: Colors.teal.shade100,
+              ),
+            ),
+          ],
+        ),
+        backgroundColor: Colors.white,
+        actions: [
+          Builder(
+            builder: (context) => TextButton(
+              onPressed: () {
+                Navigator.pop(context); // Use Navigator.pop to go back
+              },
+              child: Text(
+                'Back',
+                style: TextStyle(
+                  fontSize: width / 34,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.teal.shade100,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
       backgroundColor: Colors.blueGrey,
       body: Center(
         child: Column(
@@ -156,6 +188,38 @@ class EventsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.sizeOf(context).width;
     return Scaffold(
+      appBar: AppBar(
+        title: Column(
+          children: [
+            Text(
+              'Your one-stop shop for everything brawlstars!',
+              style: TextStyle(
+                fontSize: width / 46,
+                fontWeight: FontWeight.bold,
+                color: Colors.teal.shade100,
+              ),
+            ),
+          ],
+        ),
+        backgroundColor: Colors.white,
+        actions: [
+          Builder(
+            builder: (context) => TextButton(
+              onPressed: () {
+                Navigator.pop(context); // Use Navigator.pop to go back
+              },
+              child: Text(
+                'Back',
+                style: TextStyle(
+                  fontSize: width / 34,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.teal.shade100,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
       backgroundColor: Colors.blueGrey,
       body: Center(
         child: Column(
