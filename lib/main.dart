@@ -1,42 +1,57 @@
 // import 'package:flutter/material.dart';
 // import 'package:google_fonts/google_fonts.dart';  // importing different fonts from google-fonts
 
+// run it using "flutter run --release" instead of "flutter run"
+// opening specific simulator device: "open -a Simulator --args -CurrentDeviceUDID $(xcrun simctl list devices | grep 'iPhone 12' | awk '{print $NF}' | head -n1)"
+
 import 'dart:io';
 import 'dart:ffi';
 import 'package:ffi/ffi.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
-import 'leaderboardDisplay.py';
+import 'leaderboardDisplay.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runPythonScript();  // Execute Python before launching UI
   runApp(MyApp());
 }
 
-void runPythonScript() async {
-  // Define the Python script file path
-  final scriptPath = '/Users/tmestery/brawl_tracker/lib/leaderboardDisplay.py';
-  
-  // Run the Python script using Process
-  ProcessResult results = await Process.run('/opt/homebrew/bin/python3', [scriptPath]);
-  //ProcessResult results = await Process.run('sudo', ['python3', scriptPath]);
-  var decode = (jsonDecode(results.stdout));
-  print(decode); // Decode JSON before printing
-}
-
-// Convert MyApp to a StatefulWidget
 class MyApp extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
-  // String leaderboardString = ''; // Initialize leaderboardString
+  String leaderboardText = "Loading...";  // Initially, show loading text
+
+  @override
+  void initState() {
+    super.initState();
+    runDartScript();  // get rankings as soon as the app starts
+  }
+
+  // function to run the Dart script and fetch leaderboard data
+  Future<void> runDartScript() async {
+    try {
+      // call the function from leaderboardDisplay.dart to get the rankings
+      List<String> leaderboard = await getGlobalLeaderboard();
+
+      // convert the leaderboard list to a plain text string
+      String text = leaderboard.join('\n');  // merge items into string
+
+      setState(() {
+        leaderboardText = text;  // update text for display
+      });
+    } catch (e) {
+      setState(() {
+        leaderboardText = 'Error: $e';  // error message
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {   // tells flutter what to draw/make on UI
-  double width = MediaQuery.sizeOf(context).width;
+    double width = MediaQuery.sizeOf(context).width;
     return MaterialApp(
       home: Scaffold(   // top level layout widget that acts as the blueprint for the screen
         appBar: AppBar(    // adds a top navigation bar to the screen (property of scaffold)
@@ -45,7 +60,7 @@ class _MyAppState extends State<MyApp> {
               Text(
                 'Your one-stop shop for everything brawlstars!',
                 //style: GoogleFonts.montserrat(  // applying the fonts from google-fonts
-                style: TextStyle( // This applies the default system font
+                style: TextStyle( // applies default fonts, used to be google fonts
                   fontSize: width / 46,
                   fontWeight: FontWeight.bold,
                   color: Colors.teal.shade100,
@@ -59,15 +74,15 @@ class _MyAppState extends State<MyApp> {
               builder: (context) => TextButton( 
                 onPressed: () {
                   print('Leaderboard clicked');
-                  Navigator.push(  // Added navigation to the EventsPage
+                  Navigator.push(  // add navigation to the EventsPage here
                     context,
-                    MaterialPageRoute(builder: (context) => LeaderboardPage()),  // Open EventsPage when clicked
+                    MaterialPageRoute(builder: (context) => LeaderboardPage(leaderboardText: leaderboardText)),  // opening EventsPage when clicked
                   );
                 },  
                 child: Text(
                   'Leaderboards',
-                  style: TextStyle( // This applies the default system font
-                  //style: GoogleFonts.montserrat(  // using the same font as the slogan
+                  style: TextStyle( // this applies the default system font
+                    //style: GoogleFonts.montserrat(
                     fontSize: width / 34,
                     fontWeight: FontWeight.bold,
                     color: Colors.teal.shade100,
@@ -75,19 +90,19 @@ class _MyAppState extends State<MyApp> {
                 ),
               ),
             ),
-            Builder(  // Ensuring correct context for Navigator
-              builder: (context) => TextButton(  // adding a button that's pressable
+            Builder(  // ensures the correct context for Navigator bar
+              builder: (context) => TextButton(  // adding a button that's click-able
                 onPressed: () {
                   print('Events clicked');
-                  Navigator.push(  // Added navigation to the EventsPage
+                  Navigator.push(  // adds navigation to the EventsPage
                     context,
-                    MaterialPageRoute(builder: (context) => EventsPage()),  // Open EventsPage when clicked
+                    MaterialPageRoute(builder: (context) => EventsPage()),  // opens EventsPage when clicked
                   );
                 },
                 child: Text(
                   'Events',
-                  style: TextStyle( // This applies the default system font
-                  //style: GoogleFonts.montserrat(  // using the same font as the slogan
+                  style: TextStyle( // this applies the default system font
+                    //style: GoogleFonts.montserrat( // same font
                     fontSize: width / 34,
                     fontWeight: FontWeight.bold,
                     color: Colors.teal.shade100,
@@ -97,7 +112,7 @@ class _MyAppState extends State<MyApp> {
             ),
           ],
         ),
-        body: Container(   // container holds MAIN content of screen, as in decoration, padding, colors, etc.
+        body: Container(   // holds 'MAIN' content of screen -> as in decoration, padding, colors, etc.
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [Colors.lightBlue.shade100, Colors.yellow.shade100], 
@@ -110,9 +125,9 @@ class _MyAppState extends State<MyApp> {
               mainAxisSize: MainAxisSize.min,
               children: [   // again, here children is used since there's style, fontsize, weight, and color = more than one widget
                 Text(
-                  'BrawlKnawl', // Concatenating the two strings
-                  style: TextStyle( // This applies the default system font
-                  //style: GoogleFonts.bangers(  // applying google-fonts again
+                  'BrawlKnawl',
+                  style: TextStyle( 
+                    //style: GoogleFonts.bangers(  // applying google-fonts -> again
                     fontSize: width / 8,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
@@ -128,6 +143,11 @@ class _MyAppState extends State<MyApp> {
 }
 
 class LeaderboardPage extends StatelessWidget {
+  final String leaderboardText;
+
+  // constructor to receive the leaderboardText
+  LeaderboardPage({required this.leaderboardText});
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.sizeOf(context).width;
@@ -150,7 +170,7 @@ class LeaderboardPage extends StatelessWidget {
           Builder(
             builder: (context) => TextButton(
               onPressed: () {
-                Navigator.pop(context); // Use Navigator.pop to go back
+                Navigator.pop(context); // user Navigator.pop to go back to other screen when pressed
               },
               child: Text(
                 'Back',
@@ -165,9 +185,9 @@ class LeaderboardPage extends StatelessWidget {
         ],
       ),
       backgroundColor: Colors.blueGrey,
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisSize: MainAxisSize.min,
           children: [
             Text(
               'Leaderboard',
@@ -175,6 +195,19 @@ class LeaderboardPage extends StatelessWidget {
                 fontSize: width / 15,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
+              ),
+            ),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Text(
+                  leaderboardText,  // display leaderboard text with proper wrapping
+                  style: TextStyle(
+                    fontSize: width / 20,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
           ],
@@ -207,7 +240,7 @@ class EventsPage extends StatelessWidget {
           Builder(
             builder: (context) => TextButton(
               onPressed: () {
-                Navigator.pop(context); // Use Navigator.pop to go back
+                Navigator.pop(context); // use Navigator.pop to go back again
               },
               child: Text(
                 'Back',

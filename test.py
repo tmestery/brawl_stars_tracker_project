@@ -1,7 +1,7 @@
 import os
 import requests
 
-file = open("api_key.txt","r")
+file = open("/Users/tmestery/brawl_tracker/apiKey.txt","r")
 API_KEY = file.read()
 PLAYER_TAG = "28UY8YJY0"
 COUNTRY_CODE = "global"
