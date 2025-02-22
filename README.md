@@ -9,8 +9,8 @@ The Brawl Stars Tracker is designed to give players insights into leaderboard po
 - Checkout daily events occuring
 - Details about recommended brawlers for different maps
 
-This is achieved by leveraging the [Brawl Stars API](https://developer.brawlstars.com/).
-The application is built using Flutter, ensuring compatibility across multiple platforms, including iOS, Android, and web browsers.
+This is achieved by using the [Brawl Stars API](https://developer.brawlstars.com/).
+The application is built using Flutter, allowing for compatibility across multiple platforms, including iOS, Android, and web browsers.
 
 ## How to Run the Project
 
