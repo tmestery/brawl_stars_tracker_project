@@ -41,7 +41,7 @@ class _MyAppState extends State<MyApp> {
       // convert the leaderboard list to a plain text string
       String text = leaderboard.join('\n');  // merge items into string
       String text2 = clubLeaderboard.join('\n');  // merge items into string
-      String text3 = brawlEvents.join('\n');  // merge items into string
+      String text3 = brawlEvents.join('\n\n');  // merge items into string
 
 
       setState(() {
@@ -106,7 +106,7 @@ class _MyAppState extends State<MyApp> {
                   print('Events clicked');
                   Navigator.push(  // adds navigation to the EventsPage
                     context,
-                    MaterialPageRoute(builder: (context) => EventsPage()),  // opens EventsPage when clicked
+                    MaterialPageRoute(builder: (context) => EventsPage(brawlEventsText: brawlEventsText)),  // opens EventsPage when clicked
                   );
                 },
                 child: Text(
@@ -228,6 +228,11 @@ class LeaderboardPage extends StatelessWidget {
 }
 
 class EventsPage extends StatelessWidget {
+  final String brawlEventsText;
+
+  // constructor to receive the eventsText
+  EventsPage({required this.brawlEventsText});
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.sizeOf(context).width;
@@ -270,11 +275,24 @@ class EventsPage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              'Events',
+              'Current Events',
               style: TextStyle(
                 fontSize: width / 15,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
+              ),
+            ),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Text(
+                  brawlEventsText,  // display events text with proper wrapping
+                  style: TextStyle(
+                    fontSize: width / 20,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
           ],
