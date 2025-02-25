@@ -86,7 +86,12 @@ class _MyAppState extends State<MyApp> {
                   print('Leaderboard clicked');
                   Navigator.push(  // add navigation to the EventsPage here
                     context,
-                    MaterialPageRoute(builder: (context) => LeaderboardPage(leaderboardText: leaderboardText)),  // opening EventsPage when clicked
+                    MaterialPageRoute(
+                      builder: (context) => LeaderboardPage(
+                        leaderboardText: leaderboardText,
+                        clubLeaderboardText: clubLeaderboardText,
+                      ),
+                    ),
                   );
                 },  
                 child: Text(
@@ -154,9 +159,13 @@ class _MyAppState extends State<MyApp> {
 
 class LeaderboardPage extends StatelessWidget {
   final String leaderboardText;
+  final String clubLeaderboardText;
 
-  // constructor to receive the leaderboardText
-  LeaderboardPage({required this.leaderboardText});
+  // constructor to receive the leaderboardText and clubLeaderboardText
+  LeaderboardPage({
+    required this.leaderboardText,
+    required this.clubLeaderboardText,
+    });
 
   @override
   Widget build(BuildContext context) {
@@ -209,8 +218,23 @@ class LeaderboardPage extends StatelessWidget {
             ),
             Expanded(
               child: SingleChildScrollView(
+              physics: BouncingScrollPhysics(), // sick feature, makes it bounce when you scroll to far
                 child: Text(
-                  leaderboardText,  // display leaderboard text with proper wrapping
+                  leaderboardText,  // display leaderboard text with proper wrapping (total trophy leadeboard)
+                  style: TextStyle(
+                    fontSize: width / 20,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ),
+            Expanded(
+              child: SingleChildScrollView(
+              physics: BouncingScrollPhysics(), // sick feature, makes it bounce when you scroll to far
+                child: Text(
+                  clubLeaderboardText,  // display leaderboard text with proper wrapping (total CLUB trophy leadeboard)
                   style: TextStyle(
                     fontSize: width / 20,
                     fontWeight: FontWeight.w600,
@@ -236,26 +260,31 @@ class EventsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.sizeOf(context).width;
+    double height = MediaQuery.sizeOf(context).height;
+
     return Scaffold(
       appBar: AppBar(
         title: Column(
           children: [
             Text(
-              'Your one-stop shop for everything brawlstars!',
+              'Your one-stop shop for everything Brawl Stars!',  // slogan
               style: TextStyle(
                 fontSize: width / 46,
                 fontWeight: FontWeight.bold,
                 color: Colors.teal.shade100,
               ),
+              textAlign: TextAlign.center,
             ),
+            SizedBox(height: 5),
           ],
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
+        centerTitle: true,
         actions: [
           Builder(
             builder: (context) => TextButton(
               onPressed: () {
-                Navigator.pop(context); // use Navigator.pop to go back again
+                Navigator.pop(context);
               },
               child: Text(
                 'Back',
@@ -269,34 +298,73 @@ class EventsPage extends StatelessWidget {
           ),
         ],
       ),
-      backgroundColor: Colors.blueGrey,
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              'Current Events',
+      backgroundColor: Colors.blueGrey[900],
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ShaderMask(
+            shaderCallback: (Rect bounds) {
+              return LinearGradient(   // adding a gradient to the page
+                colors: [Colors.tealAccent, Colors.blueAccent],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ).createShader(bounds);
+            },
+            child: Text(
+              'Current Events', // title text at top of page
               style: TextStyle(
-                fontSize: width / 15,
+                fontSize: width / 12,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
+                shadows: [
+                  Shadow(
+                    color: Colors.black.withOpacity(0.3),
+                    offset: Offset(2, 2),
+                    blurRadius: 4,
+                  ),
+                ],
               ),
+              textAlign: TextAlign.center,
             ),
-            Expanded(
+          ),
+          SizedBox(height: height * 0.03),
+          Expanded(
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: width * 0.07),
+              padding: EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.blueGrey.shade800, Colors.black87],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                borderRadius: BorderRadius.circular(15),
+                border: Border.all(color: Colors.tealAccent, width: 2),
+                boxShadow: [
+                  BoxShadow(    // adds a shadow feature
+                    color: Colors.black.withOpacity(0.5),
+                    blurRadius: 8,
+                    offset: Offset(2, 4),  // amount of offset the shadow has
+                  ),
+                ],
+              ),
               child: SingleChildScrollView(
+                physics: BouncingScrollPhysics(), // sick feature, makes it bounce when you scroll to far
                 child: Text(
-                  brawlEventsText,  // display events text with proper wrapping
+                  brawlEventsText,
                   style: TextStyle(
-                    fontSize: width / 20,
+                    fontSize: width / 22,
                     fontWeight: FontWeight.w600,
                     color: Colors.white,
+                    letterSpacing: 0.5,
+                    height: 1.5,
                   ),
                   textAlign: TextAlign.center,
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
