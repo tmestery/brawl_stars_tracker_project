@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'leaderboardDisplay.dart';
 import 'clubLeaderboardDisplay.dart';
 import 'currentEvents.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -170,6 +171,8 @@ class LeaderboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.sizeOf(context).width;
+    double height = MediaQuery.sizeOf(context).height;
+
     return Scaffold(
       appBar: AppBar(
         title: Column(
@@ -184,7 +187,7 @@ class LeaderboardPage extends StatelessWidget {
             ),
           ],
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         actions: [
           Builder(
             builder: (context) => TextButton(
@@ -203,13 +206,13 @@ class LeaderboardPage extends StatelessWidget {
           ),
         ],
       ),
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Colors.blueGrey[900],
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             Text(
-              'Leaderboard',
+              'Player Leaderboard',
               style: TextStyle(
                 fontSize: width / 15,
                 fontWeight: FontWeight.bold,
@@ -228,6 +231,14 @@ class LeaderboardPage extends StatelessWidget {
                   ),
                   textAlign: TextAlign.center,
                 ),
+              ),
+            ),
+             Text(
+              'Club Leaderboard',
+              style: TextStyle(
+                fontSize: width / 15,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
               ),
             ),
             Expanded(
